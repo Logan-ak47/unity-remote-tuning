@@ -1,0 +1,18 @@
+{
+  "name": "Ashutosh.RemoteTuning.Editor",
+  "rootNamespace": "Ashutosh.RemoteTuning.Editor",
+  "references": [
+    "Ashutosh.RemoteTuning"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

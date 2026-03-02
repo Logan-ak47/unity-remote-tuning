@@ -1,0 +1,21 @@
+{
+  "name": "Ashutosh.RemoteTuning.Tests.Editor",
+  "rootNamespace": "Ashutosh.RemoteTuning.Tests",
+  "references": [
+    "Ashutosh.RemoteTuning"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

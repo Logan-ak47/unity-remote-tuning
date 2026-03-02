@@ -1,0 +1,17 @@
+{
+  "name": "com.ashutosh.remotetuning",
+  "displayName": "Remote Tuning (Config, Flags, A/B)",
+  "version": "0.1.0",
+  "unity": "6000.3",
+  "description": "Remote config + feature flags + deterministic A/B framework with caching and demo.",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  },
+  "samples": [
+    {
+      "displayName": "Remote Tuning Demo",
+      "description": "UI Toolkit demo scene showing config source, TTL, flags, and A/B.",
+      "path": "Samples~/Demo"
+    }
+  ]
+}
