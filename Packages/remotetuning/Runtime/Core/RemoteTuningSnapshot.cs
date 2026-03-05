@@ -7,16 +7,35 @@ namespace Ashutosh.RemoteTuning
     public readonly struct RemoteTuningSnapshot
     {
         public readonly ConfigSource Source;
-        public readonly string ConfigVersion;
+        public readonly ConfigLoadReason Reason;
+
+        public readonly CacheStatus CacheStatus;
         public readonly DateTime FetchedAtUtc;
+        public readonly DateTime FreshUntilUtc;
+        public readonly DateTime StaleUntilUtc;
+
+        public readonly string ConfigVersion;
         public readonly bool IsStale;
         public readonly string RawJson;
 
-        public RemoteTuningSnapshot(ConfigSource source, string configVersion, DateTime fetchedAtUtc, bool isStale, string rawJson)
+        public RemoteTuningSnapshot(
+            ConfigSource source,
+            ConfigLoadReason reason,
+            CacheStatus cacheStatus,
+            DateTime fetchedAtUtc,
+            DateTime freshUntilUtc,
+            DateTime staleUntilUtc,
+            string configVersion,
+            bool isStale,
+            string rawJson)
         {
             Source = source;
-            ConfigVersion = configVersion;
+            Reason = reason;
+            CacheStatus = cacheStatus;
             FetchedAtUtc = fetchedAtUtc;
+            FreshUntilUtc = freshUntilUtc;
+            StaleUntilUtc = staleUntilUtc;
+            ConfigVersion = configVersion;
             IsStale = isStale;
             RawJson = rawJson;
         }

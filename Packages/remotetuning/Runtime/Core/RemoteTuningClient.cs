@@ -7,6 +7,8 @@ namespace Ashutosh.RemoteTuning
     {
         public RemoteTuningSnapshot Current { get; private set; }
 
+        private readonly RemoteConfigService _remoteConfig;
+
         public RemoteTuningClient(
             RemoteTuningOptions options,
             IConfigTransport transport,
@@ -15,18 +17,20 @@ namespace Ashutosh.RemoteTuning
             ILogSink log,
             IStableHasher hasher)
         {
-            Current = new RemoteTuningSnapshot(
-                ConfigSource.Default,
-                "default",
-                clock.UtcNow,
-                isStale: false,
-                rawJson: "{}");
+            // hasher unused until Day 7; keep it in the signature for stable construction.
+            log ??= new NullLogSink();
+
+            var cacheRepo = new ConfigCacheRepository(store, clock, log);
+            var validator = new DefaultConfigValidator();
+
+            _remoteConfig = new RemoteConfigService(options, transport, cacheRepo, validator, clock, log);
+
+            Current = _remoteConfig.GetBestAvailableSnapshot();
         }
 
-        public Task RefreshAsync(CancellationToken ct = default)
+        public async Task RefreshAsync(CancellationToken ct = default)
         {
-            // Day 5: real implementation
-            return Task.CompletedTask;
+            Current = await _remoteConfig.RefreshAsync(ct);
         }
     }
 }

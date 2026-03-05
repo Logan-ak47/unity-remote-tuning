@@ -69,5 +69,15 @@ namespace Ashutosh.RemoteTuning
 
             return CacheStateEvaluator.Evaluate(entry, policy, _clock.UtcNow);
         }
+
+        public bool TryTouchFetchedAt()
+        {
+            if (!TryLoad(out var entry))
+                return false;
+
+            // Re-save the same data, but update fetchedAt to now.
+            Save(entry.RawJson, entry.ETag, entry.ConfigVersion);
+            return true;
+        }
     }
 }

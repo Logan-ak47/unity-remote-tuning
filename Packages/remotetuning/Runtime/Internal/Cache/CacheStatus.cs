@@ -1,6 +1,6 @@
 namespace Ashutosh.RemoteTuning
 {
-    internal enum CacheStatus
+    public enum CacheStatus
     {
         Miss,
         Fresh,
