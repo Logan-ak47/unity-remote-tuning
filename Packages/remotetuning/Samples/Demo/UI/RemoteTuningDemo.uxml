@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+  <ui:VisualElement class="root">
+    <ui:Label text="Remote Tuning Demo" class="title" />
+
+    <ui:VisualElement class="row">
+      <ui:Label text="UserId:" class="label"/>
+      <ui:TextField name="userIdField" value="user_1" class="field"/>
+      <ui:Button name="applyUserIdButton" text="Apply" class="button"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement class="row">
+      <ui:Button name="refreshButton" text="Refresh Remote Config" class="button"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement class="card">
+      <ui:Label text="Status" class="subtitle"/>
+      <ui:Label name="sourceLabel" text="Source: -" />
+      <ui:Label name="reasonLabel" text="Reason: -" />
+      <ui:Label name="cacheLabel" text="Cache: -" />
+      <ui:Label name="versionLabel" text="Version: -" />
+      <ui:Label name="timeLabel" text="Fetched/Fresh/Stale: -" />
+    </ui:VisualElement>
+
+    <ui:VisualElement class="card">
+      <ui:Label text="Showcase (read-only today)" class="subtitle"/>
+      <ui:Label name="difficultyLabel" text="Difficulty Scalar: -" />
+      <ui:Label name="adCooldownLabel" text="Ad Cooldown: -" />
+      <ui:Label name="iapVisibleLabel" text="IAP Visible: -" />
+      <ui:Label name="variantLabel" text="Variant (reward_exp): -" />
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>
