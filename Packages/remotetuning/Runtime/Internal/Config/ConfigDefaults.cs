@@ -1,9 +1,9 @@
 namespace Ashutosh.RemoteTuning
 {
-    internal static class ConfigDefaults
-    {
-        // Must match validator schema. Keep this minimal, predictable, and safe.
-        public const string RawJson = @"{
+  internal static class ConfigDefaults
+  {
+    // Must match validator schema. Keep this minimal, predictable, and safe.
+    public const string RawJson = @"{
   ""configVersion"": ""default-1"",
   ""tuning"": {
     ""difficultyScalar"": 1.0,
@@ -13,7 +13,16 @@ namespace Ashutosh.RemoteTuning
   ""features"": {
     ""iapVisible"": true
   },
-  ""experiments"": { }
+  ""experiments"": {
+   ""reward_exp"": {
+    ""rollout"": 100,
+    ""salt"": ""s1"",
+    ""variants"": [
+      { ""key"": ""A"", ""weight"": 50 },
+      { ""key"": ""B"", ""weight"": 50 }
+    ]
+  }
+   }
 }";
-    }
+  }
 }
