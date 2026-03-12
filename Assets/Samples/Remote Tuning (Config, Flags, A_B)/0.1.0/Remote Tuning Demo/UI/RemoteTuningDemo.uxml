@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+  <ui:VisualElement class="root">
+    <ui:Label text="Remote Tuning Demo" class="title" />
+
+    <ui:VisualElement class="row">
+      <ui:Label text="UserId:" class="label"/>
+      <ui:TextField name="userIdField" value="user_1" class="field"/>
+      <ui:Button name="applyUserIdButton" text="Apply" class="button"/>
+      <ui:Button name="randomizeUserIdButton" text="Randomize" class="button"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement class="row">
+      <ui:Button name="refreshButton" text="Refresh Remote Config" class="button"/>
+      <ui:Toggle name="offlineToggle" text="Offline (simulate)" />
+    </ui:VisualElement>
+
+    <ui:VisualElement class="row">
+      <ui:Label text="Force reward_exp:" class="labelWide"/>
+      <ui:DropdownField name="variantDropdown" />
+      <ui:Button name="clearOverrideButton" text="Clear" class="button"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement class="card">
+      <ui:Label text="Status" class="subtitle"/>
+      <ui:Label name="sourceLabel" text="Source: -" />
+      <ui:Label name="reasonLabel" text="Reason: -" />
+      <ui:Label name="cacheLabel" text="Cache: -" />
+      <ui:Label name="versionLabel" text="Version: -" />
+      <ui:Label name="ttlLabel" text="TTL: -" />
+      <ui:Label name="timeLabel" text="Fetched/Fresh/Stale: -" />
+    </ui:VisualElement>
+
+    <ui:VisualElement class="card">
+      <ui:Label text="Showcase" class="subtitle"/>
+      <ui:Label name="difficultyLabel" text="Difficulty Scalar: -" />
+      <ui:Label name="adCooldownLabel" text="Ad Cooldown: -" />
+
+      <ui:VisualElement class="row">
+        <ui:Button name="startCooldownButton" text="Start Ad Cooldown" class="button"/>
+        <ui:Label name="cooldownStateLabel" text="Ready" />
+      </ui:VisualElement>
+
+      <ui:Label name="variantLabel" text="Variant (reward_exp): -" />
+      <ui:Label name="rewardLabel" text="Reward: -" />
+
+      <ui:VisualElement name="iapSection" class="iapCard">
+        <ui:Label text="IAP Section (gated by flag)" class="subtitle"/>
+        <ui:Button name="buyButton" text="Buy (fake)" class="button"/>
+      </ui:VisualElement>
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>

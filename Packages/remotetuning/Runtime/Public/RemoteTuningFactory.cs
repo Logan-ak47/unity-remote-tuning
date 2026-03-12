@@ -4,22 +4,32 @@ namespace Ashutosh.RemoteTuning
 {
     public static class RemoteTuningFactory
     {
-        /// <summary>
-        /// Creates a RemoteTuningClient using built-in runtime adapters:
-        /// UnityWebRequest transport, PlayerPrefs storage, SystemClock, UnityLogSink, Fnv1a hasher.
-        /// </summary>
-        public static RemoteTuningClient CreateDefault(RemoteTuningOptions options, ILogSink log = null)
+        public sealed class BuildResult
+        {
+            public RemoteTuningClient Client { get; }
+            public ToggleableTransport TransportToggle { get; }
+
+            public BuildResult(RemoteTuningClient client, ToggleableTransport transportToggle)
+            {
+                Client = client;
+                TransportToggle = transportToggle;
+            }
+        }
+
+        public static BuildResult CreateDefault(RemoteTuningOptions options, ILogSink log = null)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
 
-            // internal adapters (safe because this factory is inside the package runtime assembly)
-            var transport = new UnityWebRequestTransport();
+            var realTransport = new UnityWebRequestTransport();
+            var toggle = new ToggleableTransport(realTransport);
+
             var store = new PlayerPrefsKeyValueStore();
             var clock = new SystemClock();
             log ??= new UnityLogSink();
             var hasher = new Fnv1aHasher();
 
-            return new RemoteTuningClient(options, transport, store, clock, log, hasher);
+            var client = new RemoteTuningClient(options, toggle, store, clock, log, hasher);
+            return new BuildResult(client, toggle);
         }
     }
 }

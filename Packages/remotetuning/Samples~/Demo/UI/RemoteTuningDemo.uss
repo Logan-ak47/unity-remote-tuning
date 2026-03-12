@@ -42,3 +42,17 @@
   border-radius: 6px;
   margin-top: 6px;
 }
+
+.labelWide {
+  width: 120px;
+}
+
+.iapCard {
+  margin-top: 10px;
+  padding: 10px;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+}

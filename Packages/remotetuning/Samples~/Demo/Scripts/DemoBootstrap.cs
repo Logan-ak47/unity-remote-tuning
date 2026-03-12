@@ -6,13 +6,13 @@ namespace Ashutosh.RemoteTuning.Demo
     public sealed class DemoBootstrap : MonoBehaviour
     {
         [Header("Endpoint")]
-        [Tooltip("Point this to your JSON endpoint. For now you can keep a placeholder.")]
         public string endpointUrl = "https://example.com/config.json";
 
         [Header("UI")]
         public UIDocument uiDocument;
 
         private RemoteTuningClient _client;
+        private ToggleableTransport _transportToggle;
         private DemoUIController _ui;
 
         private void Awake()
@@ -23,13 +23,15 @@ namespace Ashutosh.RemoteTuning.Demo
             var options = new RemoteTuningOptions(endpointUrl)
             {
                 TimeoutSeconds = 10,
-                TtlSeconds = 300,
-                StaleSeconds = 1800
+                TtlSeconds = 30,
+                StaleSeconds = 120
             };
 
-            _client = RemoteTuningFactory.CreateDefault(options);
-            _ui = new DemoUIController(uiDocument.rootVisualElement, _client);
+            var built = RemoteTuningFactory.CreateDefault(options);
+            _client = built.Client;
+            _transportToggle = built.TransportToggle;
 
+            _ui = new DemoUIController(uiDocument.rootVisualElement, _client, _transportToggle);
             _ui.Render();
         }
     }
