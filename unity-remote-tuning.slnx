@@ -1,4 +1,5 @@
 ﻿<Solution>
   <Project Path="Ashutosh.RemoteTuning.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Ashutosh.RemoteTuning.Tests.Runtime.csproj" />
 </Solution>
