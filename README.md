@@ -85,6 +85,14 @@ This package focuses on those reliability concerns in a way that is easy to revi
 
 ## Demo
 
+Reference screenshot:
+
+![Remote Tuning Demo overview](Packages/remotetuning/Documentation/Images/Demo-Overview.png)
+
+Demo GIF:
+
+![Remote Tuning demo GIF](Packages/remotetuning/Documentation/Images/UnityAnalyticsDemo.gif)
+
 Reviewer flow:
 
 1. Open the Unity project
